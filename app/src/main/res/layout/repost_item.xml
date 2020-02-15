@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/repostItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/colorRepostBacground"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/repostAvatarImg"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_android" />
+
+    <TextView
+        android:id="@+id/repostCreatedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#999999"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/repostAvatarImg"
+        app:layout_constraintTop_toTopOf="@+id/repostAvatarImg"
+        tools:text="20 august 2019" />
+
+    <TextView
+        android:id="@+id/repostAuthorTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/repostContentText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/repostAvatarImg"
+        app:layout_constraintTop_toBottomOf="@+id/repostCreatedDate"
+        tools:text="NetologyNetologyNetologyNetologyNetologyNetologyNetologyNetologyNetology" />
+
+    <TextView
+        android:id="@+id/repostContentText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="16dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repostAvatarImg"
+        tools:text="First Post in our network!" />
+
+    <ViewStub
+        android:id="@+id/repostSourceContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/repostInflatedSource"
+        app:layout_constraintEnd_toEndOf="@+id/repostContentText"
+        app:layout_constraintStart_toEndOf="@+id/repostAvatarImg"
+        app:layout_constraintTop_toBottomOf="@+id/repostContentText" />
+
+    <ImageButton
+        android:id="@+id/repostLikeCountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/repostLikeCountText"
+        app:layout_constraintTop_toBottomOf="@id/repostInflatedSource"
+        app:srcCompat="@drawable/ic_favorite_inactive_24dp" />
+
+    <TextView
+        android:id="@+id/repostLikeCountText"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/repostCommentCountIcon"
+        app:layout_constraintEnd_toStartOf="@+id/repostCommentCountIcon"
+        app:layout_constraintTop_toBottomOf="@id/repostInflatedSource"
+        tools:text="2" />
+
+    <ImageButton
+        android:id="@+id/repostCommentCountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/repostCommentCountText"
+        app:layout_constraintTop_toBottomOf="@id/repostInflatedSource"
+        app:srcCompat="@drawable/ic_comment_inactive_24dp" />
+
+    <TextView
+        android:id="@+id/repostCommentCountText"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/repostSharedCountIcon"
+        app:layout_constraintEnd_toStartOf="@+id/repostSharedCountIcon"
+        app:layout_constraintTop_toBottomOf="@id/repostInflatedSource"
+        tools:text="8" />
+
+    <ImageButton
+        android:id="@+id/repostSharedCountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/repostSharedCountText"
+        app:layout_constraintTop_toBottomOf="@id/repostInflatedSource"
+        app:srcCompat="@drawable/ic_share_inactive_24dp" />
+
+    <TextView
+        android:id="@+id/repostSharedCountText"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/repostSharedCountIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repostInflatedSource"
+        tools:text="2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

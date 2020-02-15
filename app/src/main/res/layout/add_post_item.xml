@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addPostItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="#ffffff"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/addPostAvatarImg"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_android" />
+
+    <TextView
+        android:id="@+id/addPostCreatedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#999999"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/addPostAvatarImg"
+        app:layout_constraintTop_toTopOf="@+id/addPostAvatarImg"
+        tools:text="20 august 2019" />
+
+    <TextView
+        android:id="@+id/addPostAuthorTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/addPostContentText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addPostAvatarImg"
+        app:layout_constraintTop_toBottomOf="@+id/addPostCreatedDate"
+        tools:text="Реклама" />
+
+    <TextView
+        android:id="@+id/addPostContentText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="16dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addPostAvatarImg"
+        tools:text="First Post in our network!" />
+
+    <ImageView
+        android:id="@+id/addPostPictureIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        app:srcCompat="@drawable/herbalayf"
+        app:layout_constraintEnd_toEndOf="@+id/addPostContentText"
+        app:layout_constraintStart_toStartOf="@+id/addPostContentText"
+        app:layout_constraintTop_toBottomOf="@+id/addPostContentText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

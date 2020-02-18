@@ -2,21 +2,27 @@ package ru.cyber_eagle_owl.kotlindz6
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import client.Api
 import dto.*
-import dto.posttypes.PostType
+import kotlin.collections.ArrayList
+import io.ktor.client.request.get
+import io.ktor.util.KtorExperimentalAPI
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.*
 import ru.cyber_eagle_owl.kotlindz6.adapters.MainRecyclerViewAdapter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private lateinit var postsAdapter: MainRecyclerViewAdapter
 
+    @KtorExperimentalAPI
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fun testData(): ArrayList<Post> = arrayListOf(
+        /*fun testData(): ArrayList<Post> = arrayListOf(
             Post(
                 34, "CATS", "All your base are belong to us", "1992",
                 likeCount = 3,
@@ -430,7 +436,17 @@ class MainActivity : AppCompatActivity() {
                 postType = PostType.POST
             )
         )
-        prepareRecyclerView(testData())
+        */
+
+        //prepareRecyclerView(testData())
+
+        launch {
+            val list = withContext(Dispatchers.IO){
+                Api.client.get<ArrayList<Post>>(Api.url)
+            }
+            Log.d("dddddd", "$list")
+            prepareRecyclerView(list)
+        }
     }
 
     private fun prepareRecyclerView(posts: ArrayList<Post>) {

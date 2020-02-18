@@ -1,5 +1,6 @@
 package ru.cyber_eagle_owl.kotlindz6.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -18,11 +19,17 @@ class MainRecyclerViewAdapter :
     RecyclerView.Adapter<BaseViewHolder>() {
 
     internal val bag = CompositeDisposable()
-    internal var allPosts = BehaviorRelay.createDefault(ArrayList<Post>())
+    internal var allPosts = BehaviorRelay.createDefault(arrayListOf<Post>())
 
     init {
         allPosts.observeOn(AndroidSchedulers.mainThread())
             .subscribe {
+                /*for (post in it) {
+                    Log.d(
+                        "dddaaa",
+                        "Object $post, id = ${post.id}, postType = ${post.postType}, source = ${post.source}"
+                    )
+                }*/
                 notifyDataSetChanged()
             }.addTo(bag)
     }

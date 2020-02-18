@@ -3,6 +3,7 @@ package ru.cyber_eagle_owl.kotlindz6
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import client.Api
 import dto.*
@@ -439,7 +440,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         */
 
         //prepareRecyclerView(testData())
-
+        progressBar.visibility = View.VISIBLE
         launch {
             val list = withContext(Dispatchers.IO){
                 Api.client.get<ArrayList<Post>>(Api.url)
@@ -455,6 +456,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             layoutManager = LinearLayoutManager (this@MainActivity)
             adapter = postsAdapter
             (adapter as MainRecyclerViewAdapter).allPosts.accept(posts)
+            progressBar.visibility = View.GONE
         }
     }
 

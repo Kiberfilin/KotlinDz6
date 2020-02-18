@@ -28,7 +28,6 @@ object Api {
                         .registerSubtype(Add::class.java, "ADD")
                         .registerSubtype(Video::class.java, "VIDEO")
                 )
-
             }
         }
     }
